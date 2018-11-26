@@ -4,34 +4,41 @@ import java.util.HashMap;
 
 public class CheckoutSolution {
 
-	private int  applySimplePrizeDiscount(char item, int originalCost, int discountedCost, int bundleCount, HashMap<Character, Integer> charFequencyMap){
+	private int applySimplePrizeDiscount(char item, int originalCost, int discountedCost, int bundleCount,
+			HashMap<Character, Integer> charFequencyMap) {
 		int currentItemUnitCount = charFequencyMap.get(item);
 		int sum = 0;
 		if (currentItemUnitCount >= bundleCount) {
-			sum += ((currentItemUnitCount / bundleCount) * discountedCost) + ((currentItemUnitCount % bundleCount) * originalCost);
+			sum += ((currentItemUnitCount / bundleCount) * discountedCost)
+					+ ((currentItemUnitCount % bundleCount) * originalCost);
 		} else {
 			sum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * originalCost));
 		}
 		return sum;
 	}
-	
-	private int  applyComplexPrizeDiscount(char item, int originalCost, int lDiscountedCost,int uDiscountedCost, int lBundleCount, int uBundleCount, HashMap<Character, Integer> charFequencyMap){
+
+	private int applyComplexPrizeDiscount(char item, int originalCost, int lDiscountedCost, int uDiscountedCost,
+			int lBundleCount, int uBundleCount, HashMap<Character, Integer> charFequencyMap) {
 		int currentItemUnitCount = charFequencyMap.get(item);
 		int sum = 0;
 		if (currentItemUnitCount >= lBundleCount && currentItemUnitCount < uBundleCount) {
-			sum += (currentItemUnitCount / lBundleCount * lDiscountedCost) + (currentItemUnitCount % lBundleCount * originalCost);
+			sum += (currentItemUnitCount / lBundleCount * lDiscountedCost)
+					+ (currentItemUnitCount % lBundleCount * originalCost);
 		} else if (currentItemUnitCount >= uBundleCount) {
-			sum += ((currentItemUnitCount / uBundleCount) * uDiscountedCost) + (((currentItemUnitCount % uBundleCount) / lBundleCount) * lDiscountedCost) + (((currentItemUnitCount % uBundleCount) % lBundleCount) * originalCost);
+			sum += ((currentItemUnitCount / uBundleCount) * uDiscountedCost)
+					+ (((currentItemUnitCount % uBundleCount) / lBundleCount) * lDiscountedCost)
+					+ (((currentItemUnitCount % uBundleCount) % lBundleCount) * originalCost);
 		} else {
 			sum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * originalCost));
 		}
 		return sum;
 	}
-	
-	private void applyItemSwapDiscount(char item, char discountItem, int discountUnit, HashMap<Character, Integer> charFequencyMap){
+
+	private void applyItemSwapDiscount(char item, char discountItem, int discountUnit,
+			HashMap<Character, Integer> charFequencyMap) {
 		int finalUnit = 0;
 		int eUnit = 0;
-		
+
 		if (charFequencyMap.containsKey(discountItem)) {
 			finalUnit = charFequencyMap.get(discountItem);
 		}
@@ -43,24 +50,31 @@ public class CheckoutSolution {
 			charFequencyMap.put(discountItem, finalUnit);
 		}
 	}
-	
-	private void applySelfSwapDiscount(char item,int discountUnit, HashMap<Character, Integer> charFequencyMap){
+
+	private void applyGroupDiscount(int discoutUnit, int discountAmount, HashMap<Character, Integer> charFequencyMap,
+			char... groupMemberItems) {
+		int totalGroupSize = 0;
+		for (char c : groupMemberItems) {
+			totalGroupSize += charFequencyMap.get(c);
+		}
+
+	}
+
+	private void applySelfSwapDiscount(char item, int discountUnit, HashMap<Character, Integer> charFequencyMap) {
 		int cUnit = 0;
 		int iUnitAct = 0;
 		int iUnitMod = 0;
 		if (charFequencyMap.containsKey(item)) {
 			cUnit = charFequencyMap.get(item);
-			if (cUnit >= discountUnit ) {
+			if (cUnit >= discountUnit) {
 				iUnitAct = (charFequencyMap.get(item) / discountUnit);
-			    iUnitMod = (charFequencyMap.get(item) % discountUnit);
-			    
-			    cUnit = (cUnit - iUnitAct) + ((iUnitMod == 0) ? 1 : 0);
-//			    cUnit = (iUnitAct + ((iUnitMod == 0) ? 1 : iUnitMod));
+				iUnitMod = (charFequencyMap.get(item) % discountUnit);
+				cUnit = (cUnit - iUnitAct) + ((iUnitMod == 0) ? 1 : 0);
 				charFequencyMap.put(item, cUnit);
 			}
 		}
 	}
-	
+
 	public Integer checkout(String skus) {
 		HashMap<Character, Integer> charFequencyMap = new HashMap<Character, Integer>();
 		for (char c : skus.toCharArray()) {
@@ -71,26 +85,13 @@ public class CheckoutSolution {
 				charFequencyMap.put(c, 1);
 			}
 		}
-				
+
 		int totalSum = 0;
-		applyItemSwapDiscount('E', 'B', 2,  charFequencyMap);
-		applyItemSwapDiscount('N', 'M', 3,  charFequencyMap);
-		applyItemSwapDiscount('R', 'Q', 3,  charFequencyMap);
+		applyItemSwapDiscount('E', 'B', 2, charFequencyMap);
+		applyItemSwapDiscount('N', 'M', 3, charFequencyMap);
+		applyItemSwapDiscount('R', 'Q', 3, charFequencyMap);
 		applySelfSwapDiscount('F', 2, charFequencyMap);
 		applySelfSwapDiscount('U', 3, charFequencyMap);
-		
-//		int fUnit = 0;
-//		int fUnitAct = 0;
-//		int fUnitMod = 0;
-//		if (charFequencyMap.containsKey('F')) {
-//			fUnit = charFequencyMap.get('F');
-//			if (fUnit >= 3) {
-//				fUnitAct = (charFequencyMap.get('F') / 2);
-//			    fUnitMod = (charFequencyMap.get('F') % 2);
-//			    fUnit = fUnitAct + ((fUnitMod == 0) ? 1 : fUnitMod);
-//				charFequencyMap.put('F', fUnit);
-//			}
-//		}
 
 		for (Character key : charFequencyMap.keySet()) {
 			int currentItemUnitCount = charFequencyMap.get(key);
@@ -126,7 +127,7 @@ public class CheckoutSolution {
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 60));
 				break;
 			case 'K':
-				totalSum += applySimplePrizeDiscount('K', 80, 150, 2, charFequencyMap);
+				totalSum += applySimplePrizeDiscount('K', 70, 120, 2, charFequencyMap);
 				break;
 			case 'L':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 90));
@@ -141,7 +142,7 @@ public class CheckoutSolution {
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 10));
 				break;
 			case 'P':
-				totalSum +=  applySimplePrizeDiscount('P', 50, 200, 5, charFequencyMap);
+				totalSum += applySimplePrizeDiscount('P', 50, 200, 5, charFequencyMap);
 				break;
 			case 'Q':
 				totalSum += applySimplePrizeDiscount('Q', 30, 80, 3, charFequencyMap);
@@ -150,7 +151,7 @@ public class CheckoutSolution {
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 50));
 				break;
 			case 'S':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 30));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
 			case 'T':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
@@ -165,13 +166,13 @@ public class CheckoutSolution {
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
 			case 'X':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 90));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 17));
 				break;
 			case 'Y':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 10));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
 			case 'Z':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 50));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 21));
 				break;
 			default:
 				return -1;
@@ -181,33 +182,4 @@ public class CheckoutSolution {
 		return totalSum;
 	}
 
-	public static void main(String[] args) {
-		CheckoutSolution cs = new CheckoutSolution();
-//		cs.checkout("A");
-//		cs.checkout("AA");
-//		cs.checkout("AAA");
-//		cs.checkout("AAAAA");
-//		cs.checkout("AAAAAA");
-//		cs.checkout("EE");
-//		cs.checkout("EEB");
-//		cs.checkout("EEEB");
-//		cs.checkout("EEBBBB");
-//		cs.checkout("EEEEBB");
-//		cs.checkout("F");
-//		cs.checkout("FF");
-//		cs.checkout("FFF");
-//		cs.checkout("FFFF");
-//		cs.checkout("U");
-//		cs.checkout("UU");
-		cs.checkout("UUU");
-		cs.checkout("UUUU");
-		cs.checkout("UUUUU");
-		cs.checkout("UUUUUUUU");
-//		cs.checkout("Q");
-//		cs.checkout("QQ");
-//		cs.checkout("QQQ");
-//		cs.checkout("QQQQ");
-//		cs.checkout("QQQQQ");
-//		cs.checkout("QQQQQQ");
-	}
 }
