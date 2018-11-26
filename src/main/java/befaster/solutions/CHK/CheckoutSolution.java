@@ -59,7 +59,8 @@ public class CheckoutSolution {
 				break;
 				
 			default:
-				break;
+				return -1;
+//				break;
 			}
 		}
 		return sum;
