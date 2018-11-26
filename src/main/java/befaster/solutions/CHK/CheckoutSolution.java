@@ -64,8 +64,7 @@ public class CheckoutSolution {
 
 	public static void main(String[] args) {
 		CheckoutSolution cks = new CheckoutSolution();
-		cks.generateSKFrequence("AAAABC");
-		cks.calculatePrizeTotal();
+		cks.checkout("AAAABC");
 		System.out.println("<>>>>");
 	}
 }
