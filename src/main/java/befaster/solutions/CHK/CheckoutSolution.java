@@ -57,9 +57,7 @@ public class CheckoutSolution {
 				charFequencyMap.put(item, finalUnit);
 			}
 		}
-
 	}
-	
 	
 	public Integer checkout(String skus) {
 		HashMap<Character, Integer> charFequencyMap = new HashMap<Character, Integer>();
