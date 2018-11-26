@@ -55,18 +55,20 @@ public class CheckoutSolution {
 			char... groupMemberItems) {
 		int totalGroupSize = 0;
 		for (char c : groupMemberItems) {
-			totalGroupSize += charFequencyMap.get(c);
-			charFequencyMap.put(c, 0);
+			if (charFequencyMap.containsKey(c)) {
+				totalGroupSize += charFequencyMap.get(c);
+				charFequencyMap.put(c, 0);
+			}
 		}
-		
+
 		int sum = 0;
 		if (totalGroupSize >= bundleCount) {
 			sum += ((totalGroupSize / bundleCount) * discountedCost);
-//					+ ((totalGroupSize % bundleCount) * originalCost);
-		} 
-//		else {
-//			sum += ((totalGroupSize < 1) ? 0 : (totalGroupSize * originalCost));
-//		}
+			// + ((totalGroupSize % bundleCount) * originalCost);
+		}
+		// else {
+		// sum += ((totalGroupSize < 1) ? 0 : (totalGroupSize * originalCost));
+		// }
 		return sum;
 
 	}
@@ -103,8 +105,8 @@ public class CheckoutSolution {
 		applyItemSwapDiscount('R', 'Q', 3, charFequencyMap);
 		applySelfSwapDiscount('F', 2, charFequencyMap);
 		applySelfSwapDiscount('U', 3, charFequencyMap);
-		
-		totalSum += applyGroupDiscount(3, 45, charFequencyMap, 'S','T','X','Y','Z');
+
+		totalSum += applyGroupDiscount(3, 45, charFequencyMap, 'S', 'T', 'X', 'Y', 'Z');
 
 		for (Character key : charFequencyMap.keySet()) {
 			int currentItemUnitCount = charFequencyMap.get(key);
