@@ -63,8 +63,8 @@ public class CheckoutSolution {
 		int sub = totalGroupSize;
 		int sum = 0;
 		if (sub >= bundleCount) {
+			sub =  sub - (sub % bundleCount);
 			for (char c : groupMemberItems) {
-				sub =  sub - (totalGroupSize % bundleCount);;
 				if (charFequencyMap.containsKey(c)) {
 					int currFre = charFequencyMap.get(c);
 					if (sub > 0 && sub >= currFre) {
