@@ -195,8 +195,8 @@ public class CheckoutSolution {
 //		cs.checkout("FF");
 //		cs.checkout("FFF");
 //		cs.checkout("FFFF");
-		cs.checkout("U");
-		cs.checkout("UU");
+//		cs.checkout("U");
+//		cs.checkout("UU");
 		cs.checkout("UUU");
 		cs.checkout("UUUU");
 		cs.checkout("UUUUU");
