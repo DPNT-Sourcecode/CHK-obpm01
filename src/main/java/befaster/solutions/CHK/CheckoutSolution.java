@@ -104,7 +104,7 @@ public class CheckoutSolution {
 		applySelfSwapDiscount('F', 2, charFequencyMap);
 		applySelfSwapDiscount('U', 3, charFequencyMap);
 		
-		totalSum += applyGroupDiscount(3, 45, charFequencyMap);
+		totalSum += applyGroupDiscount(3, 45, charFequencyMap, 'S','T','X','Y','Z');
 
 		for (Character key : charFequencyMap.keySet()) {
 			int currentItemUnitCount = charFequencyMap.get(key);
