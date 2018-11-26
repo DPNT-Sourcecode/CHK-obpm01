@@ -50,7 +50,7 @@ public class CheckoutSolution {
 		int iUnitMod = 0;
 		if (charFequencyMap.containsKey(item)) {
 			finalUnit = charFequencyMap.get(item);
-			if (finalUnit >= (discountUnit)) {
+			if (finalUnit >= (discountUnit * 2)) {
 				iUnitAct = (charFequencyMap.get(item) / discountUnit);
 			    iUnitMod = (charFequencyMap.get(item) % discountUnit);
 			    finalUnit = (iUnitAct + ((iUnitMod == 0) ? 1 : iUnitMod));
