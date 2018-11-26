@@ -202,6 +202,7 @@ public class CheckoutSolution {
 		cs.checkout("UUU");
 		cs.checkout("UUUU");
 		cs.checkout("UUUUU");
+		cs.checkout("UUUUUUUU");
 //		cs.checkout("Q");
 //		cs.checkout("QQ");
 //		cs.checkout("QQQ");
