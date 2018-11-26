@@ -53,7 +53,9 @@ public class CheckoutSolution {
 			if (cUnit >= discountUnit ) {
 				iUnitAct = (charFequencyMap.get(item) / discountUnit);
 			    iUnitMod = (charFequencyMap.get(item) % discountUnit);
-			    cUnit = (iUnitAct + ((iUnitMod == 0) ? 1 : iUnitMod));
+			    
+			    cUnit = (cUnit - iUnitAct) + ((iUnitMod == 0) ? 1 : 0);
+//			    cUnit = (iUnitAct + ((iUnitMod == 0) ? 1 : iUnitMod));
 				charFequencyMap.put(item, cUnit);
 			}
 		}
