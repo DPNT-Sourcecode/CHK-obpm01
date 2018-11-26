@@ -26,12 +26,15 @@ public class CheckoutSolution {
 	}
 	
 	private void calculatePrizeTotal(){
-		
+		for(Character key : charFequencyMap.keySet()){
+			System.out.println("key ==> " + key + " fequence ==> " + charFequencyMap.get(key));
+		}
 	}
 	
 	public static void main (String[] args){
 		CheckoutSolution cks = new CheckoutSolution();
 		cks.generateSKFrequence("AAAABC");
+		cks.calculatePrizeTotal();
 		System.out.println("<>>>>");
 	}
 }
