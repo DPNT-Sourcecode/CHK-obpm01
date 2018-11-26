@@ -26,7 +26,7 @@ public class CheckoutSolution {
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
 			switch (key) {
-			case 'A':
+			case 'A': case 'a':
 				if (unit >= 3) {
 //					System.out.println(">>> greater than three");
 					int act = unit / 3;
@@ -36,7 +36,7 @@ public class CheckoutSolution {
 					sum += ((unit < 1) ? 0 : (unit * 50));
 				}
 				break;
-			case 'B':
+			case 'B':  case 'b':
 				if (unit >= 2) {
 					int act = unit / 2;
 					int mod = unit % 2;
@@ -45,11 +45,11 @@ public class CheckoutSolution {
 					sum += ((unit < 1) ? 0 : (unit * 30));
 				}
 				break;
-			case 'C':
+			case 'C':  case 'c':
 				sum += ((unit < 1) ? 0 : (unit * 20));
 				break;
 			
-			case 'D':
+			case 'D':  case 'd':
 				sum += ((unit < 1) ? 0 : (unit * 15));
 				break;
 				
