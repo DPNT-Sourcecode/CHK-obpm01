@@ -17,6 +17,6 @@ public class CheckoutSolutionTest {
 	
 	@Test
 	public void testChecout(){
-		Assert.assertEquals(expected, actual);
+		Assert.assertEquals(Integer.valueOf(checkout.checkout("AAABC")).intValue(), (130+45+20));
 	}
 }
