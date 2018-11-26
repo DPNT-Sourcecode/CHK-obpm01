@@ -15,6 +15,20 @@ public class CheckoutSolution {
 			}
 		}
 		int sum = 0;
+		int bUnit = 0;
+		int eUnit = 0;
+		if(charFequencyMap.containsKey('B')){
+			bUnit = charFequencyMap.get('B');
+		}
+		if(charFequencyMap.containsKey('E')){
+			eUnit = (charFequencyMap.get('E') / 2);
+		}
+//		System.out.println("B >>> " +bUnit + " E >>> " + eUnit);
+		if(eUnit >= 1 && bUnit >= 1){
+			bUnit = ((bUnit >= eUnit) ? (bUnit - eUnit) : (eUnit - bUnit));
+//			System.out.println("Final BUnit >>>> " + bUnit);
+			charFequencyMap.put('B', bUnit );
+		}
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
 			switch (key) {
@@ -50,22 +64,27 @@ public class CheckoutSolution {
 				sum += ((unit < 1) ? 0 : (unit * 15));
 				break;
 			case 'E':
-				if(unit <= 2 ){
-					int act = unit / 2;
-					int mod = unit % 2;
-					sum += (-(act * 30)) + (mod * 40);
-				}else{
-					sum += ((unit < 1) ? 0 : (unit * 40));
-				}
+				sum += ((unit < 1) ? 0 : (unit * 40));				
 				break;
-			
-
 			default:
 				return -1;
 			}
 		}
-		System.out.println(skus + " >>>> " + sum);
+		System.out.println(skus + " >>>> " + sum+"\n");
 		return sum;
 	}
 
+	public static void main(String [] args){
+		CheckoutSolution cs = new CheckoutSolution();
+		cs.checkout("A");
+		cs.checkout("AA");
+		cs.checkout("AAA");
+		cs.checkout("AAAAA");
+		cs.checkout("AAAAAA");
+		cs.checkout("EE");
+		cs.checkout("EEB");
+		cs.checkout("EEEB");
+		cs.checkout("EEBBBB");
+		cs.checkout("EEEEBB");
+	}
 }
