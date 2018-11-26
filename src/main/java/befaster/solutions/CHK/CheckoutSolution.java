@@ -26,9 +26,9 @@ public class CheckoutSolution {
 		}
 		if (charFequencyMap.containsKey('F')) {
 			fUnit = charFequencyMap.get('F');
-			if (fUnit >= 2) {
+			if (fUnit >= 3) {
 				fUnit = (charFequencyMap.get('F') / 2) + (charFequencyMap.get('F') % 2);
-				charFequencyMap.put('f', fUnit);
+				charFequencyMap.put('F', fUnit);
 			}
 		}
 
@@ -98,5 +98,8 @@ public class CheckoutSolution {
 		cs.checkout("EEEB");
 		cs.checkout("EEBBBB");
 		cs.checkout("EEEEBB");
+		cs.checkout("FF");
+		cs.checkout("FFF");
+		cs.checkout("FFFF");
 	}
 }
