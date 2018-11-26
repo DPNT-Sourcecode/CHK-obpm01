@@ -51,14 +51,23 @@ public class CheckoutSolution {
 		}
 	}
 
-	private void applyGroupDiscount(int discoutUnit, int discountAmount, HashMap<Character, Integer> charFequencyMap,
-			char... groupMemberItems) {
-		int totalGroupSize = 0;
-		for (char c : groupMemberItems) {
-			totalGroupSize += charFequencyMap.get(c);
-		}
-
-	}
+//	private void applyGroupDiscount(int bundleCount, int discountedCost, HashMap<Character, Integer> charFequencyMap,
+//			char... groupMemberItems) {
+//		int totalGroupSize = 0;
+//		for (char c : groupMemberItems) {
+//			totalGroupSize += charFequencyMap.get(c);
+//		}
+//		
+//		int sum = 0;
+//		if (totalGroupSize >= bundleCount) {
+//			sum += ((totalGroupSize / bundleCount) * discountedCost)
+//					+ ((totalGroupSize % bundleCount) * originalCost);
+//		} else {
+//			sum += ((totalGroupSize < 1) ? 0 : (totalGroupSize * originalCost));
+//		}
+//		return sum;
+//
+//	}
 
 	private void applySelfSwapDiscount(char item, int discountUnit, HashMap<Character, Integer> charFequencyMap) {
 		int cUnit = 0;
