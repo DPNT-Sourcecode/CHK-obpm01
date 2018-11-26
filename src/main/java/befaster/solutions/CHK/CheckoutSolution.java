@@ -8,40 +8,63 @@ public class CheckoutSolution {
 
 	HashMap<Character, Integer> charFequencyMap = new HashMap<Character, Integer>();
 
-	public Integer checkout(String skus) {        
+	public Integer checkout(String skus) {
 		generateSKFrequence(skus);
 		calculatePrizeTotal();
 		return null;
-    }
-	
-	private void generateSKFrequence(String skus){
-		for(char c : skus.toCharArray()){
-    		Integer value = charFequencyMap.get(c);
-    		if(value != null){
-    			charFequencyMap.put(c, new Integer(value + 1));
-    		}else{
-    			charFequencyMap.put(c, 1);
-    		}
-    	}
 	}
-	
-	private void calculatePrizeTotal(){
-		for(Character key : charFequencyMap.keySet()){
-			System.out.println("key ==> " + key + " fequence ==> " + charFequencyMap.get(key));
+
+	private void generateSKFrequence(String skus) {
+		for (char c : skus.toCharArray()) {
+			Integer value = charFequencyMap.get(c);
+			if (value != null) {
+				charFequencyMap.put(c, new Integer(value + 1));
+			} else {
+				charFequencyMap.put(c, 1);
+			}
+		}
+	}
+
+	private void calculatePrizeTotal() {
+		int sum = 0;
+		for (Character key : charFequencyMap.keySet()) {
+			int unit = charFequencyMap.get(key);
+			System.out.println("key ==> " + key + " fequence ==> " + unit);
 			switch (key) {
 			case 'A':
-				if(charFequencyMap.get(key) > 3){
+				if (unit >= 3) {
 					System.out.println(">>> greater than three");
+					int act = unit / 3;
+					int mod = unit % 3;
+					sum += (act * 130) + (mod * 50);
+				} else {
+					sum += (unit * 50);
 				}
 				break;
-
+			case 'B':
+				if (unit >= 2) {
+					int act = unit / 2;
+					int mod = unit % 2;
+					sum += (act * 45) + (mod * 30);
+				} else {
+					sum += (unit * 30);
+				}
+				break;
+			case 'c':
+				sum += (unit * 20);
+				break;
+			
+			case 'D':
+				sum += (unit * 15);
+				break;
+				
 			default:
 				break;
 			}
 		}
 	}
-	
-	public static void main (String[] args){
+
+	public static void main(String[] args) {
 		CheckoutSolution cks = new CheckoutSolution();
 		cks.generateSKFrequence("AAAABC");
 		cks.calculatePrizeTotal();
