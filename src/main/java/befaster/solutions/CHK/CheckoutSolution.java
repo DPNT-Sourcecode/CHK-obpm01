@@ -17,12 +17,18 @@ public class CheckoutSolution {
 		int sum = 0;
 		int bUnit = 0;
 		int eUnit = 0;
+		int fUnit = 0;
 		if(charFequencyMap.containsKey('B')){
 			bUnit = charFequencyMap.get('B');
 		}
 		if(charFequencyMap.containsKey('E')){
 			eUnit = (charFequencyMap.get('E') / 2);
 		}
+		if(charFequencyMap.containsKey('F')){
+			fUnit = (charFequencyMap.get('F') / 2) + (charFequencyMap.get('F') % 2);
+			charFequencyMap.put('f', fUnit );
+		}
+		
 //		System.out.println("B >>> " +bUnit + " E >>> " + eUnit);
 		if(eUnit >= 1 && bUnit >= 1){
 			bUnit = ((bUnit >= eUnit) ? (bUnit - eUnit) : (eUnit - bUnit));
@@ -65,6 +71,9 @@ public class CheckoutSolution {
 				break;
 			case 'E':
 				sum += ((unit < 1) ? 0 : (unit * 40));				
+				break;
+			case 'F':
+				sum += ((unit < 1) ? 0 : (unit * 10));				
 				break;
 			default:
 				return -1;
