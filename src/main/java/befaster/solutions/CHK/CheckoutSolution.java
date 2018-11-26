@@ -216,8 +216,8 @@ public class CheckoutSolution {
 
 	public static void main(String[] args) {
 		CheckoutSolution ch = new CheckoutSolution();
-		ch.checkout("STX");
 		ch.checkout("SSSZ");
-		ch.checkout("ZZZS");
+		ch.checkout("STXS");
+		ch.checkout("STXZ");
 	}
 }
