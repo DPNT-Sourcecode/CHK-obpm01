@@ -57,15 +57,14 @@ public class CheckoutSolution {
 		for (char c : groupMemberItems) {
 			if (charFequencyMap.containsKey(c)) {
 				totalGroupSize += charFequencyMap.get(c);
-//				charFequencyMap.put(c, 0);
 			}
 		}
 
-		int sub = 0;
+		int sub = totalGroupSize;
 		for (char c : groupMemberItems) {
 			if (charFequencyMap.containsKey(c)) {
 				int currFre = charFequencyMap.get(c);
-				if(totalGroupSize > bundleCount && currFre < totalGroupSize){
+				if(sub > bundleCount && currFre < totalGroupSize){
 					sub = totalGroupSize - currFre;			
 					charFequencyMap.put(c, 0);		
 				}else{
