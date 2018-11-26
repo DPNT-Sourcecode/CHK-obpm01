@@ -33,7 +33,7 @@ public class CheckoutSolution {
 			switch (key) {
 			case 'A':
 				if (unit >= 3) {
-					System.out.println(">>> greater than three");
+//					System.out.println(">>> greater than three");
 					int act = unit / 3;
 					int mod = unit % 3;
 					sum += (act * 130) + (mod * 50);
