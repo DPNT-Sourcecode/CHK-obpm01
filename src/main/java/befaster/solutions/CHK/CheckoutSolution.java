@@ -9,12 +9,6 @@ public class CheckoutSolution {
 	HashMap<Character, Integer> charFequencyMap = new HashMap<Character, Integer>();
 
 	public Integer checkout(String skus) {
-		generateSKFrequence(skus);
-		return calculatePrizeTotal();
-//		return null;
-	}
-
-	private void generateSKFrequence(String skus) {
 		for (char c : skus.toCharArray()) {
 			Integer value = charFequencyMap.get(c);
 			if (value != null) {
@@ -23,7 +17,9 @@ public class CheckoutSolution {
 				charFequencyMap.put(c, 1);
 			}
 		}
+		return calculatePrizeTotal();
 	}
+
 
 	private int calculatePrizeTotal() {
 		int sum = 0;
