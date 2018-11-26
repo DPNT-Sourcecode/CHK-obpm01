@@ -47,7 +47,7 @@ public class SendCommandToServer {
      *        * You can use your own test framework.
      *        * You can change the file structure.
      *        * Anything really, provided that this file stays runnable.
-     *
+     *ß
      **/
     public static void main(String[] args) throws ConfigNotFoundException {
         EntryPointMapping entry = new EntryPointMapping();
