@@ -180,13 +180,7 @@ public class CheckoutSolution {
 				break;
 			case 'R':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 50));
-				break;
-			case 'S':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
-				break;
-			case 'T':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
-				break;
+				break;			
 			case 'U':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 40));
 				break;
@@ -196,14 +190,20 @@ public class CheckoutSolution {
 			case 'W':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
-			case 'X':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 17));
+			case 'Z':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 21));
+				break;
+			case 'S':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
+				break;
+			case 'T':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
 			case 'Y':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
-			case 'Z':
-				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 21));
+			case 'X':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 17));
 				break;
 			default:
 				return -1;
