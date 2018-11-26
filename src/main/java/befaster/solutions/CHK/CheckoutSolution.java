@@ -7,8 +7,9 @@ import befaster.runner.SolutionNotImplementedException;
 public class CheckoutSolution {
 
 
+
 	public Integer checkout(String skus) {
-	 HashMap<Character, Integer> charFequencyMap = new HashMap<Character, Integer>();
+		HashMap<Character, Integer> charFequencyMap = new HashMap<Character, Integer>();
 		for (char c : skus.toCharArray()) {
 			Integer value = charFequencyMap.get(c);
 			if (value != null) {
@@ -22,16 +23,20 @@ public class CheckoutSolution {
 			int unit = charFequencyMap.get(key);
 			switch (key) {
 			case 'A': 
-				if (unit == 3) {
-//					System.out.println(">>> greater than three");					
-					sum += 130;
+				if (unit >= 3) {
+//					System.out.println(">>> greater than three");
+					int act = unit / 3;
+					int mod = unit % 3;
+					sum += (act * 130) + (mod * 50);
 				} else {
 					sum += ((unit < 1) ? 0 : (unit * 50));
 				}
 				break;
 			case 'B': 
 				if (unit >= 2) {
-					sum += 45;
+					int act = unit / 2;
+					int mod = unit % 2;
+					sum += (act * 45) + (mod * 30);
 				} else {
 					sum += ((unit < 1) ? 0 : (unit * 30));
 				}
@@ -49,7 +54,7 @@ public class CheckoutSolution {
 //				break;
 			}
 		}
-		System.out.println(skus + " >>>> " + sum);
+		System.out.println(skus+ " >>>> " + sum);
 		return sum;
 	}
 
