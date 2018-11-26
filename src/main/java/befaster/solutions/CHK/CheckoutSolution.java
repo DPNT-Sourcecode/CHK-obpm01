@@ -14,7 +14,7 @@ public class CheckoutSolution {
 				charFequencyMap.put(c, 1);
 			}
 		}
-		int sum = 0;
+		int totalSum = 0;
 		int bUnit = 0;
 		int eUnit = 0;
 		int fUnit = 0;
@@ -36,58 +36,106 @@ public class CheckoutSolution {
 			}
 		}
 
-		// System.out.println("B >>> " +bUnit + " E >>> " + eUnit);
+
 		if (eUnit >= 1 && bUnit >= 1) {
 			bUnit = ((bUnit >= eUnit) ? (bUnit - eUnit) : (eUnit - bUnit));
-			// System.out.println("Final BUnit >>>> " + bUnit);
 			charFequencyMap.put('B', bUnit);
 		}
 		for (Character key : charFequencyMap.keySet()) {
-			int unit = charFequencyMap.get(key);
+			int currentItemUnitCount = charFequencyMap.get(key);
 			switch (key) {
 			case 'A':
-				if (unit >= 3 && unit < 5) {
-					int act = unit / 3;
-					int mod = unit % 3;
-					sum += (act * 130) + (mod * 50);
-				} else if (unit >= 5) {
-					int act5 = unit / 5;
-					int mod5 = unit % 5;
-					int act = mod5 / 3;
-					int mod = mod5 % 3;
-					sum += (act5 * 200) + (act * 130) + (mod * 50);
+				if (currentItemUnitCount >= 3 && currentItemUnitCount < 5) {
+					totalSum += (currentItemUnitCount / 3 * 130) + (currentItemUnitCount % 3 * 50);
+				} else if (currentItemUnitCount >= 5) {
+					totalSum += ((currentItemUnitCount / 5) * 200) + (((currentItemUnitCount % 5) / 3) * 130) + (((currentItemUnitCount % 5) % 3) * 50);
 				} else {
-					sum += ((unit < 1) ? 0 : (unit * 50));
+					totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 50));
 				}
 				break;
 			case 'B':
-				if (unit >= 2) {
-					int act = unit / 2;
-					int mod = unit % 2;
-					sum += (act * 45) + (mod * 30);
+				if (currentItemUnitCount >= 2) {
+					totalSum += ((currentItemUnitCount / 2) * 45) + ((currentItemUnitCount % 2) * 30);
 				} else {
-					sum += ((unit < 1) ? 0 : (unit * 30));
+					totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 30));
 				}
 				break;
 			case 'C':
-				sum += ((unit < 1) ? 0 : (unit * 20));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
 
 			case 'D':
-				sum += ((unit < 1) ? 0 : (unit * 15));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 15));
 				break;
 			case 'E':
-				sum += ((unit < 1) ? 0 : (unit * 40));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 40));
 				break;
 			case 'F':
-				sum += ((unit < 1) ? 0 : (unit * 10));
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 10));
+				break;
+			case 'G':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
+				break;
+			case 'H':				
+				break;
+			case 'I':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 35));
+				break;
+			case 'J':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 60));
+				break;
+			case 'K':
+				if (currentItemUnitCount >= 2) {
+					totalSum += ((currentItemUnitCount / 2) * 150) + ((currentItemUnitCount % 2) * 80);
+				} else {
+					totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 80));
+				}
+				break;
+			case 'L':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 90));
+				break;
+			case 'M':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 15));
+				break;
+			case 'N':
+				break;
+			case 'O':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 10));
+				break;
+			case 'P':
+				break;
+			case 'Q':
+				break;
+			case 'R':
+				break;
+			case 'S':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 30));
+				break;
+			case 'T':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
+				break;
+			case 'U':
+				break;
+			case 'V':
+				break;
+			case 'W':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
+				break;
+			case 'X':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 90));
+				break;
+			case 'Y':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 10));
+				break;
+			case 'Z':
+				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 50));
 				break;
 			default:
 				return -1;
 			}
 		}
-		System.out.println(skus + " >>>> " + sum + "\n");
-		return sum;
+		System.out.println(skus + " >>>> " + totalSum + "\n");
+		return totalSum;
 	}
 
 	public static void main(String[] args) {
