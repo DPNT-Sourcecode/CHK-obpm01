@@ -25,7 +25,6 @@ public class CheckoutSolution {
 		int sum = 0;
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
-//			System.out.println("key ==> " + key + " fequence ==> " + unit);
 			switch (key) {
 			case 'A':
 				if (unit >= 3) {
@@ -34,7 +33,7 @@ public class CheckoutSolution {
 					int mod = unit % 3;
 					sum += (act * 130) + (mod * 50);
 				} else {
-					sum += (unit * 50);
+					sum += ((unit < 1) ? 0 : (unit * 50));
 				}
 				break;
 			case 'B':
@@ -43,15 +42,15 @@ public class CheckoutSolution {
 					int mod = unit % 2;
 					sum += (act * 45) + (mod * 30);
 				} else {
-					sum += (unit * 30);
+					sum += ((unit < 1) ? 0 : (unit * 30));
 				}
 				break;
 			case 'C':
-				sum += (unit * 20);
+				sum += ((unit < 1) ? 0 : (unit * 20));
 				break;
 			
 			case 'D':
-				sum += (unit * 15);
+				sum += ((unit < 1) ? 0 : (unit * 15));
 				break;
 				
 			default:
