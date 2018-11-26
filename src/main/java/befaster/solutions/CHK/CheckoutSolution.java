@@ -123,7 +123,7 @@ public class CheckoutSolution {
 		applySelfSwapDiscount('F', 2, charFequencyMap);
 		applySelfSwapDiscount('U', 3, charFequencyMap);
 
-		totalSum += applyGroupDiscount(3, 45, charFequencyMap, 'S', 'T', 'X', 'Y', 'Z');
+		totalSum += applyGroupDiscount(3, 45, charFequencyMap, 'Z', 'S', 'T', 'Y', 'X');
 
 		for (Character key : charFequencyMap.keySet()) {
 			int currentItemUnitCount = charFequencyMap.get(key);
