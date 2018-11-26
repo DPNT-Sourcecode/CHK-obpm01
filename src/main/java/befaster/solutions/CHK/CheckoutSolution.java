@@ -76,7 +76,14 @@ public class CheckoutSolution {
 			case 'G':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 20));
 				break;
-			case 'H':				
+			case 'H':
+				if (currentItemUnitCount >= 5 && currentItemUnitCount < 10) {
+					totalSum += (currentItemUnitCount / 5 * 45) + (currentItemUnitCount % 3 * 10);
+				} else if (currentItemUnitCount >= 10) {
+					totalSum += ((currentItemUnitCount / 10) * 80) + (((currentItemUnitCount % 10) / 5) * 45) + (((currentItemUnitCount % 10) % 5) * 10);
+				} else {
+					totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 10));
+				}
 				break;
 			case 'I':
 				totalSum += ((currentItemUnitCount < 1) ? 0 : (currentItemUnitCount * 35));
