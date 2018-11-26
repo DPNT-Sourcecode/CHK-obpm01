@@ -10,8 +10,8 @@ public class CheckoutSolution {
 
 	public Integer checkout(String skus) {
 		generateSKFrequence(skus);
-		calculatePrizeTotal();
-		return null;
+		return calculatePrizeTotal();
+//		return null;
 	}
 
 	private void generateSKFrequence(String skus) {
@@ -25,7 +25,7 @@ public class CheckoutSolution {
 		}
 	}
 
-	private void calculatePrizeTotal() {
+	private int calculatePrizeTotal() {
 		int sum = 0;
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
@@ -62,6 +62,7 @@ public class CheckoutSolution {
 				break;
 			}
 		}
+		return sum;
 	}
 
 	public static void main(String[] args) {
