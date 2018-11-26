@@ -18,6 +18,8 @@ public class CheckoutSolution {
 		int bUnit = 0;
 		int eUnit = 0;
 		int fUnit = 0;
+		int fUnitAct = 0;
+		int fUnitMod = 0;
 		if (charFequencyMap.containsKey('B')) {
 			bUnit = charFequencyMap.get('B');
 		}
@@ -27,7 +29,9 @@ public class CheckoutSolution {
 		if (charFequencyMap.containsKey('F')) {
 			fUnit = charFequencyMap.get('F');
 			if (fUnit >= 3) {
-				fUnit = (charFequencyMap.get('F') / 2) + (charFequencyMap.get('F') % 2);
+				fUnitAct = (charFequencyMap.get('F') / 2);
+			    fUnitMod = (charFequencyMap.get('F') % 2);
+			    fUnit = fUnitAct + ((fUnitMod == 0) ? 1 : fUnitMod);
 				charFequencyMap.put('F', fUnit);
 			}
 		}
