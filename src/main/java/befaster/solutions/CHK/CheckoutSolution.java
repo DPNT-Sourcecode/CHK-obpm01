@@ -49,6 +49,16 @@ public class CheckoutSolution {
 			case 'D':
 				sum += ((unit < 1) ? 0 : (unit * 15));
 				break;
+			case 'E':
+				if(unit <= 2 ){
+					int act = unit / 2;
+					int mod = unit % 2;
+					sum += (-(act * 30)) + (mod * 40);
+				}else{
+					sum += ((unit < 1) ? 0 : (unit * 40));
+				}
+				break;
+			
 
 			default:
 				return -1;
