@@ -96,7 +96,7 @@ public class CheckoutSolution {
 			int currentItemUnitCount = charFequencyMap.get(key);
 			switch (key) {
 			case 'A':
-				totalSum += applyComplexPrizeDiscount('A', 50, 130, 200, 2, 5, charFequencyMap);
+				totalSum += applyComplexPrizeDiscount('A', 50, 130, 200, 3, 5, charFequencyMap);
 				break;
 			case 'B':
 				totalSum += applySimplePrizeDiscount('B', 30, 45, 2, charFequencyMap);
@@ -183,11 +183,11 @@ public class CheckoutSolution {
 
 	public static void main(String[] args) {
 		CheckoutSolution cs = new CheckoutSolution();
-//		cs.checkout("A");
-//		cs.checkout("AA");
-//		cs.checkout("AAA");
-//		cs.checkout("AAAAA");
-//		cs.checkout("AAAAAA");
+		cs.checkout("A");
+		cs.checkout("AA");
+		cs.checkout("AAA");
+		cs.checkout("AAAAA");
+		cs.checkout("AAAAAA");
 //		cs.checkout("EE");
 //		cs.checkout("EEB");
 //		cs.checkout("EEEB");
