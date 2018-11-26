@@ -17,11 +17,6 @@ public class CheckoutSolution {
 				charFequencyMap.put(c, 1);
 			}
 		}
-		return calculatePrizeTotal();
-	}
-
-
-	private int calculatePrizeTotal() {
 		int sum = 0;
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
@@ -61,9 +56,12 @@ public class CheckoutSolution {
 		return sum;
 	}
 
-	public static void main(String[] args) {
-		CheckoutSolution cks = new CheckoutSolution();
-		cks.checkout("AAAABC");
-		System.out.println("<>>>>");
-	}
+
+	
+
+//	public static void main(String[] args) {
+//		CheckoutSolution cks = new CheckoutSolution();
+//		cks.checkout("AAAABC");
+//		System.out.println("<>>>>");
+//	}
 }
