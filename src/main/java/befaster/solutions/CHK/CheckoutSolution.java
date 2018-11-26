@@ -22,20 +22,16 @@ public class CheckoutSolution {
 			int unit = charFequencyMap.get(key);
 			switch (key) {
 			case 'A': 
-				if (unit >= 3) {
-//					System.out.println(">>> greater than three");
-					int act = unit / 3;
-					int mod = unit % 3;
-					sum += (act * 130) + (mod * 50);
+				if (unit == 3) {
+//					System.out.println(">>> greater than three");					
+					sum += 130;
 				} else {
 					sum += ((unit < 1) ? 0 : (unit * 50));
 				}
 				break;
 			case 'B': 
 				if (unit >= 2) {
-					int act = unit / 2;
-					int mod = unit % 2;
-					sum += (act * 45) + (mod * 30);
+					sum += 45;
 				} else {
 					sum += ((unit < 1) ? 0 : (unit * 30));
 				}
