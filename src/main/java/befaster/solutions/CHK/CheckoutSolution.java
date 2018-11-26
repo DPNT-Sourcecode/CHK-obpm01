@@ -18,22 +18,25 @@ public class CheckoutSolution {
 		int bUnit = 0;
 		int eUnit = 0;
 		int fUnit = 0;
-		if(charFequencyMap.containsKey('B')){
+		if (charFequencyMap.containsKey('B')) {
 			bUnit = charFequencyMap.get('B');
 		}
-		if(charFequencyMap.containsKey('E')){
+		if (charFequencyMap.containsKey('E')) {
 			eUnit = (charFequencyMap.get('E') / 2);
 		}
-		if(charFequencyMap.containsKey('F')){
-			fUnit = (charFequencyMap.get('F') / 2) + (charFequencyMap.get('F') % 2);
-			charFequencyMap.put('f', fUnit );
+		if (charFequencyMap.containsKey('F')) {
+			fUnit = charFequencyMap.get('F');
+			if (fUnit >= 2) {
+				fUnit = (charFequencyMap.get('F') / 2) + (charFequencyMap.get('F') % 2);
+				charFequencyMap.put('f', fUnit);
+			}
 		}
-		
-//		System.out.println("B >>> " +bUnit + " E >>> " + eUnit);
-		if(eUnit >= 1 && bUnit >= 1){
+
+		// System.out.println("B >>> " +bUnit + " E >>> " + eUnit);
+		if (eUnit >= 1 && bUnit >= 1) {
 			bUnit = ((bUnit >= eUnit) ? (bUnit - eUnit) : (eUnit - bUnit));
-//			System.out.println("Final BUnit >>>> " + bUnit);
-			charFequencyMap.put('B', bUnit );
+			// System.out.println("Final BUnit >>>> " + bUnit);
+			charFequencyMap.put('B', bUnit);
 		}
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
@@ -70,20 +73,20 @@ public class CheckoutSolution {
 				sum += ((unit < 1) ? 0 : (unit * 15));
 				break;
 			case 'E':
-				sum += ((unit < 1) ? 0 : (unit * 40));				
+				sum += ((unit < 1) ? 0 : (unit * 40));
 				break;
 			case 'F':
-				sum += ((unit < 1) ? 0 : (unit * 10));				
+				sum += ((unit < 1) ? 0 : (unit * 10));
 				break;
 			default:
 				return -1;
 			}
 		}
-		System.out.println(skus + " >>>> " + sum+"\n");
+		System.out.println(skus + " >>>> " + sum + "\n");
 		return sum;
 	}
 
-	public static void main(String [] args){
+	public static void main(String[] args) {
 		CheckoutSolution cs = new CheckoutSolution();
 		cs.checkout("A");
 		cs.checkout("AA");
