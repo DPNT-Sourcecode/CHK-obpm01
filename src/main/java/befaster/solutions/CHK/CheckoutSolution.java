@@ -50,7 +50,7 @@ public class CheckoutSolution {
 					sum += (unit * 30);
 				}
 				break;
-			case 'c':
+			case 'C':
 				sum += (unit * 20);
 				break;
 			
