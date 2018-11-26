@@ -66,10 +66,13 @@ public class CheckoutSolution {
 			for (char c : groupMemberItems) {
 				if (charFequencyMap.containsKey(c)) {
 					int currFre = charFequencyMap.get(c);
-					if (sub >= currFre && currFre <= sub) {
-						sub = totalGroupSize - currFre;
+					if (sub > 0 && sub >= currFre) {
+						sub = sub - currFre;
 						charFequencyMap.put(c, 0);
-					} else {
+					} else if(sub > 0 && sub <= currFre) {
+						charFequencyMap.put(c, currFre - sub);
+						break;
+					}else{
 						break;
 					}
 				}
