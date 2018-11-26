@@ -209,4 +209,10 @@ public class CheckoutSolution {
 		return totalSum;
 	}
 
+	public static void main (String [] args ){
+		CheckoutSolution ch = new CheckoutSolution();
+		ch.checkout("STX");
+		ch.checkout("SSSZ");
+		ch.checkout("ZZZS");
+	}
 }
