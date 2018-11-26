@@ -2,7 +2,6 @@ package befaster.solutions.CHK;
 
 import java.util.HashMap;
 
-import befaster.runner.SolutionNotImplementedException;
 
 public class CheckoutSolution {
 
@@ -24,7 +23,6 @@ public class CheckoutSolution {
 			switch (key) {
 			case 'A': 
 				if (unit >= 3) {
-//					System.out.println(">>> greater than three");
 					int act = unit / 3;
 					int mod = unit % 3;
 					sum += (act * 130) + (mod * 50);
@@ -51,43 +49,11 @@ public class CheckoutSolution {
 				
 			default:
 				return -1;
-//				break;
 			}
 		}
 		System.out.println(skus+ " >>>> " + sum);
 		return sum;
 	}
 
-
 	
-
-	public static void main(String[] args) {
-		CheckoutSolution cks = new CheckoutSolution();
-		cks.checkout("AAAABC");
-		cks.checkout("");//, resp = 0
-		cks.checkout("A");//, resp = 50
-		cks.checkout("B");//, resp = 80
-		cks.checkout("C");//, resp = 100
-		cks.checkout("D");//, resp = 115
-		cks.checkout("a");//, resp = -1
-		cks. checkout("-");//, resp = -1
-		cks.checkout("ABCa");//, resp = -1
-		cks.checkout("AxA");//, resp = -1
-		cks.checkout("ABCD");//, resp = -1
-		cks.checkout("A");//, resp = -1
-		cks.checkout("AA");//, resp = -1
-		cks.checkout("AAA");//, resp = -1
-		cks.checkout("AAAA");//, resp = -1
-		cks.checkout("AAAAA");//, resp = -1
-		cks. checkout("AAAAAA");//, resp = -1
-		cks. checkout("B");//, resp = -1
-		cks. checkout("BB");//, resp = -1
-		cks. checkout("BBB");//, resp = -1
-		cks.checkout("BBBB");//, resp = -1
-		cks. checkout("ABCDABCD");//, resp = -1
-		cks. checkout("BABDDCAC");//, resp = -1
-		cks.checkout("AAABB");//, resp = -1
-		cks.checkout("ABCDCBAABCABBAAA");//, resp = -1
-		System.out.println("<>>>>");
-	}
 }
