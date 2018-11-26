@@ -29,7 +29,7 @@ public class CheckoutSolution {
 		int sum = 0;
 		for (Character key : charFequencyMap.keySet()) {
 			int unit = charFequencyMap.get(key);
-			System.out.println("key ==> " + key + " fequence ==> " + unit);
+//			System.out.println("key ==> " + key + " fequence ==> " + unit);
 			switch (key) {
 			case 'A':
 				if (unit >= 3) {

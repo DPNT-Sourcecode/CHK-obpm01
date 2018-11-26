@@ -29,6 +29,18 @@ public class CheckoutSolutionTest {
 	}
 	@Test
 	public void testChecout4(){
-		Assert.assertEquals((-1), Integer.valueOf(checkout.checkout("ABBCd")).intValue());
+		Assert.assertEquals((-1), Integer.valueOf(checkout.checkout("ABBCz")).intValue());
+	}
+	@Test
+	public void testChecout5(){
+		Assert.assertEquals((30), Integer.valueOf(checkout.checkout("B")).intValue());
+	}
+	@Test
+	public void testChecout6(){
+		Assert.assertEquals((20), Integer.valueOf(checkout.checkout("C")).intValue());
+	}
+	@Test
+	public void testChecout7(){
+		Assert.assertEquals((15), Integer.valueOf(checkout.checkout("D")).intValue());
 	}
 }
