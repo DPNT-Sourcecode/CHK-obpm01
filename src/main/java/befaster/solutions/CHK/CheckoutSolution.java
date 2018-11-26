@@ -205,7 +205,7 @@ public class CheckoutSolution {
 				return -1;
 			}
 		}
-		System.out.println(skus + " >>>> " + totalSum + "\n");
+		System.out.println(skus + " >>>> " + totalSum );
 		return totalSum;
 	}
 
