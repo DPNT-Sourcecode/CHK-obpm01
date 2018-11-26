@@ -183,19 +183,25 @@ public class CheckoutSolution {
 
 	public static void main(String[] args) {
 		CheckoutSolution cs = new CheckoutSolution();
-		cs.checkout("A");
-		cs.checkout("AA");
-		cs.checkout("AAA");
-		cs.checkout("AAAAA");
-		cs.checkout("AAAAAA");
+//		cs.checkout("A");
+//		cs.checkout("AA");
+//		cs.checkout("AAA");
+//		cs.checkout("AAAAA");
+//		cs.checkout("AAAAAA");
 //		cs.checkout("EE");
 //		cs.checkout("EEB");
 //		cs.checkout("EEEB");
 //		cs.checkout("EEBBBB");
 //		cs.checkout("EEEEBB");
+		cs.checkout("F");
 		cs.checkout("FF");
 		cs.checkout("FFF");
 		cs.checkout("FFFF");
+		cs.checkout("U");
+		cs.checkout("UU");
+		cs.checkout("UUU");
+		cs.checkout("UUUU");
+		cs.checkout("UUUUU");
 //		cs.checkout("Q");
 //		cs.checkout("QQ");
 //		cs.checkout("QQQ");
