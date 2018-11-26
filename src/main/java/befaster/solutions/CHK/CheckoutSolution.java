@@ -45,16 +45,16 @@ public class CheckoutSolution {
 	}
 	
 	private void applySelfSwapDiscount(char item,int discountUnit, HashMap<Character, Integer> charFequencyMap){
-		int finalUnit = 0;
+		int cUnit = 0;
 		int iUnitAct = 0;
 		int iUnitMod = 0;
 		if (charFequencyMap.containsKey(item)) {
-			finalUnit = charFequencyMap.get(item);
-			if (finalUnit >= (discountUnit * 2)) {
+			cUnit = charFequencyMap.get(item);
+			if (cUnit >= discountUnit ) {
 				iUnitAct = (charFequencyMap.get(item) / discountUnit);
 			    iUnitMod = (charFequencyMap.get(item) % discountUnit);
-			    finalUnit = (iUnitAct + ((iUnitMod == 0) ? 1 : iUnitMod));
-				charFequencyMap.put(item, finalUnit);
+			    cUnit = (iUnitAct + ((iUnitMod == 0) ? 1 : iUnitMod));
+				charFequencyMap.put(item, cUnit);
 			}
 		}
 	}
