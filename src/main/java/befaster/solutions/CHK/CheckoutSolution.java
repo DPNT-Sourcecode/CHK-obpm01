@@ -28,6 +28,16 @@ public class CheckoutSolution {
 	private void calculatePrizeTotal(){
 		for(Character key : charFequencyMap.keySet()){
 			System.out.println("key ==> " + key + " fequence ==> " + charFequencyMap.get(key));
+			switch (key) {
+			case 'A':
+				if(charFequencyMap.get(key) > 3){
+					System.out.println(">>> greater than three");
+				}
+				break;
+
+			default:
+				break;
+			}
 		}
 	}
 	
