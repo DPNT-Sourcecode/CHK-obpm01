@@ -61,22 +61,23 @@ public class CheckoutSolution {
 		}
 
 		int sub = totalGroupSize;
-		for (char c : groupMemberItems) {
-			if (charFequencyMap.containsKey(c)) {
-				int currFre = charFequencyMap.get(c);
-				if(sub >= bundleCount && currFre <= sub){
-					sub = totalGroupSize - currFre;			
-					charFequencyMap.put(c, 0);		
-				}else{
-					break;
+		int sum = 0;
+		if (sub >= bundleCount) {
+			for (char c : groupMemberItems) {
+				if (charFequencyMap.containsKey(c)) {
+					int currFre = charFequencyMap.get(c);
+					if (sub >= currFre && currFre <= sub) {
+						sub = totalGroupSize - currFre;
+						charFequencyMap.put(c, 0);
+					} else {
+						break;
+					}
 				}
 			}
-		}
-
-		int sum = 0;
-		if (totalGroupSize >= bundleCount) {
-			sum += ((totalGroupSize / bundleCount) * discountedCost);
-			// + ((totalGroupSize % bundleCount) * originalCost);
+			if (totalGroupSize >= bundleCount) {
+				sum += ((totalGroupSize / bundleCount) * discountedCost);
+				// + ((totalGroupSize % bundleCount) * originalCost);
+			}
 		}
 		// else {
 		// sum += ((totalGroupSize < 1) ? 0 : (totalGroupSize * originalCost));
@@ -205,11 +206,11 @@ public class CheckoutSolution {
 				return -1;
 			}
 		}
-		System.out.println(skus + " >>>> " + totalSum );
+		System.out.println(skus + " >>>> " + totalSum);
 		return totalSum;
 	}
 
-	public static void main (String [] args ){
+	public static void main(String[] args) {
 		CheckoutSolution ch = new CheckoutSolution();
 		ch.checkout("STX");
 		ch.checkout("SSSZ");
